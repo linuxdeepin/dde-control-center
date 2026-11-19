@@ -525,6 +525,28 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
+    <name>BluetoothAdapterItem</name>
+    <message>
+        <source>My Devices</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>BluetoothApplet</name>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disable [Airplane Mode](#) first if you want to connect to a Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
@@ -556,6 +578,56 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Not connected</source>
         <translation>Nun se coneutó</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothItem</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
+    </message>
+    <message>
+        <source>Turn off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Turn on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connected %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>BluetoothPlugin</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -642,6 +714,31 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>BrightnessApplet</name>
+    <message>
+        <source>Brightness</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>BrightnessItem</name>
+    <message>
+        <source>Display settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>BrightnessPlugin</name>
+    <message>
+        <source>Brightness</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -798,6 +895,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Camera occupied!</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Camera is not enabled</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ColorAndIcons</name>
@@ -924,7 +1025,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
-    <name>CommonInfoMain</name>
+    <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
         <translation type="unfinished"/>
@@ -934,11 +1035,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Developer root permission management</source>
+        <source>Developer Options</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Developer Options</source>
+        <source>Developer root permission management</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1180,9 +1281,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Time and date, time zone settings</source>
         <translation type="unfinished"/>
     </message>
-</context>
-<context>
-    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
         <translation type="unfinished"/>
@@ -1702,9 +1800,9 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>Device</name>
+    <name>DeviceControlWidget</name>
     <message>
-        <source>Bluetooth and Devices</source>
+        <source>Other Devices</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2050,6 +2148,111 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Fashion Mode</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>DomainPasswordErrorDialog</name>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>EyeComfortModeItem</name>
+    <message>
+        <source>Eye Comfort</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Eye comfort</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disable eye comfort</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Display Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Eye comfort enabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Eye comfort disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Theme: Light</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Theme: Dark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Theme: Auto</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Visual effect</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>EyeComfortmodeApplet</name>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2169,6 +2372,29 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Decrease screen brightness on power saver</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Device idle power saving</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reduce the power consumption of idle USB, PCIe and SATA storage devices when using battery to extend battery life. May affect device response speed or stability.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>GroupObject</name>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Common settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth and Devices</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2335,7 +2561,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>LogoModule</name>
     <message>
-        <source>Copyright© 2011-%1 Deepin Community</source>
+        <source>Copyright© 2011-%1 Deepin Technology</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2345,6 +2571,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 </context>
 <context>
     <name>MicrophonePage</name>
+    <message>
+        <source>Automatic Noise Suppression</source>
+        <translation type="unfinished"/>
+    </message>
     <message>
         <source>Input Volume</source>
         <translation>Volume d&apos;entrada</translation>
@@ -2365,8 +2595,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Input Device</source>
         <translation type="unfinished"/>
     </message>
+</context>
+<context>
+    <name>MonitorItemWidget</name>
     <message>
-        <source>Intelligent Noise Reduction</source>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2772,6 +3009,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PluginItemWidget</name>
+    <message>
+        <source>Disconnect</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3401,6 +3645,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>SoundApplet</name>
+    <message>
+        <source>Volume</source>
+        <translation>Volume</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -3505,13 +3764,32 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>SoundWorker</name>
+    <name>SoundPlugin</name>
     <message>
-        <source>Failed to enable intelligent noise reduction. Try again later.</source>
+        <source>Sound</source>
+        <translation>Soníu</translation>
+    </message>
+</context>
+<context>
+    <name>SoundView</name>
+    <message>
+        <source>Unmute</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Failed to disable intelligent noise reduction. Try again later.</source>
+        <source>Mute</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No output devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Volume %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3598,31 +3876,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>System</name>
-    <message>
-        <source>Common settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>System</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation type="unfinished"/>
     </message>
-</context>
-<context>
-    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>System version, device information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3651,10 +3919,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open Source Software Notice</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3701,6 +3965,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Use 24-hour format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show seconds in the dock clock</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3816,6 +4084,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Natural Scrolling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Edge Touch Gestures</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -4428,6 +4700,86 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>None</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::StatePanel</name>
+    <message>
+        <source>No available casting wireless monitors found</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Successfully cast the screen to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The wireless card doesn&apos;t support this feature, and cannot cast the screen to a wireless monitor</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You need to enable wireless network to cast the screen to a wireless monitor</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingApplet</name>
+    <message>
+        <source>Wireless Casting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Multiple Display options</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingItem</name>
+    <message>
+        <source>Multiple services started</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingPlugin</name>
+    <message>
+        <source>Multiple Displays</source>
         <translation type="unfinished"/>
     </message>
 </context>
