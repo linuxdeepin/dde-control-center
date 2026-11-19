@@ -527,28 +527,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
-    <name>BluetoothAdapterItem</name>
-    <message>
-        <source>My Devices</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>BluetoothApplet</name>
-    <message>
-        <source>Bluetooth settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Disable [Airplane Mode](#) first if you want to connect to a Bluetooth</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Turned off</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
@@ -579,56 +557,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Not connected</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>BluetoothItem</name>
-    <message>
-        <source>Bluetooth</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Turn off</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Turn on</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Bluetooth settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 connected</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Connected %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Connecting...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Not connected</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Turned off</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Off</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>BluetoothPlugin</name>
-    <message>
-        <source>Bluetooth</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -716,31 +644,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>BrightnessApplet</name>
-    <message>
-        <source>Brightness</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Display settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>BrightnessItem</name>
-    <message>
-        <source>Display settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>BrightnessPlugin</name>
-    <message>
-        <source>Brightness</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1802,13 +1705,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>DeviceControlWidget</name>
-    <message>
-        <source>Other Devices</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2163,100 +2059,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>EyeComfortModeItem</name>
-    <message>
-        <source>Eye Comfort</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Display settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Eye comfort</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>On</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Off</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Light</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Dark</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Disable eye comfort</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enable eye comfort</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Display Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Eye comfort enabled</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Eye comfort disabled</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Theme: Light</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Theme: Dark</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Theme: Auto</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Visual effect</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>EyeComfortmodeApplet</name>
-    <message>
-        <source>Light</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Dark</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
@@ -2595,17 +2397,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Input Device</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MonitorItemWidget</name>
-    <message>
-        <source>Connecting</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3011,13 +2802,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>PluginItemWidget</name>
-    <message>
-        <source>Disconnect</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3647,21 +3431,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>SoundApplet</name>
-    <message>
-        <source>Volume</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Output</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sound settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -3762,36 +3531,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SoundPlugin</name>
-    <message>
-        <source>Sound</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SoundView</name>
-    <message>
-        <source>Unmute</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mute</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sound settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No output devices</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Volume %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4702,86 +4441,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>dde::wirelesscasting::StatePanel</name>
-    <message>
-        <source>No available casting wireless monitors found</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Disconnect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Successfully cast the screen to %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>The wireless card doesn&apos;t support this feature, and cannot cast the screen to a wireless monitor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You need to enable wireless network to cast the screen to a wireless monitor</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>dde::wirelesscasting::WirelessCastingApplet</name>
-    <message>
-        <source>Wireless Casting</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Multiple Display options</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Display settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Duplicate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Extend</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Only on %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>dde::wirelesscasting::WirelessCastingItem</name>
-    <message>
-        <source>Multiple services started</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Connecting</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Not connected</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Display settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>dde::wirelesscasting::WirelessCastingPlugin</name>
-    <message>
-        <source>Multiple Displays</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
