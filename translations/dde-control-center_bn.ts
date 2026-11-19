@@ -2379,6 +2379,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Decrease screen brightness on power saver</source>
         <translation>পার্টি সেভারে স্ক্রিন ব্রিজ্যাস কমান</translation>
     </message>
+    <message>
+        <source>Device idle power saving</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reduce the power consumption of idle USB, PCIe and SATA storage devices when using battery to extend battery life. May affect device response speed or stability.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>GroupObject</name>
