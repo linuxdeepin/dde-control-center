@@ -1,3 +1,13 @@
+dde-control-center (6.2.1) unstable; urgency=medium
+
+  * fix: narrow control center DConfig visibility
+  * feat(dock): expose fashion mode in settings
+  * feat: add device idle power saving switch
+  * i18n: add device idle power saving translations
+  * i18n: add remaining device idle power saving translations
+
+ -- zhaofangxun <zhaofangxun@uniontech.com>  Thu, 19 Nov 2026 20:50:49 +0800
+
 dde-control-center (6.2.0) unstable; urgency=medium
 
   * fix(accounts): remove fixed implicitHeight for font size adaptation
