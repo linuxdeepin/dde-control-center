@@ -2392,6 +2392,14 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <source>Decrease screen brightness on power saver</source>
         <translation>Disminuir el brillo de la pantalla en el modo de ahorro de energía</translation>
     </message>
+    <message>
+        <source>Device idle power saving</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reduce the power consumption of idle USB, PCIe and SATA storage devices when using battery to extend battery life. May affect device response speed or stability.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>GroupObject</name>
