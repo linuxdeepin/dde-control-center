@@ -100,9 +100,9 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
 
     connect(m_sessionUiCfg, &DConfig::valueChanged, this, [this](const QString &key) {
         if (key == QLatin1String("showUserNotice"))
-            updateAutoLoginEnabled();
+            updateLoginSettingsEnabled();
     });
-    updateAutoLoginEnabled();
+    updateLoginSettingsEnabled();
 
     connect(m_accountsInter, &AccountsDBusProxy::UserListChanged, this, &AccountsWorker::onUserListChanged, Qt::QueuedConnection);
     connect(m_accountsInter, &AccountsDBusProxy::GroupListChanged, this, &AccountsWorker::onGroupListChanged, Qt::QueuedConnection);
@@ -148,11 +148,12 @@ void AccountsWorker::updateDomainUserModifyPasswordEnable()
     m_userModel->setDomainUserModifyPasswordEnable(getAccountBoolConfig(QStringLiteral("domainUserModifyPasswordEnable")));
 }
 
-void AccountsWorker::updateAutoLoginEnabled()
+void AccountsWorker::updateLoginSettingsEnabled()
 {
-    const bool enabled = m_sessionUiCfg && m_sessionUiCfg->isValid()
-            && !m_sessionUiCfg->value(QStringLiteral("showUserNotice"), false).toBool();
-    m_userModel->setAutoLoginEnabled(enabled);
+    // 用户须知开启后必须经过 greeter，自动登录/免密登录会跳过它
+    const bool noticeOn = m_sessionUiCfg && m_sessionUiCfg->isValid()
+            && m_sessionUiCfg->value(QStringLiteral("showUserNotice"), false).toBool();
+    m_userModel->setLoginSettingsEnabled(!noticeOn);
 }
 
 void AccountsWorker::getAllGroups()

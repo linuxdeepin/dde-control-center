@@ -111,7 +111,7 @@ private Q_SLOTS:
 private:
     void updateHideUserlistForNonadmin();
     void updateDomainUserModifyPasswordEnable();
-    void updateAutoLoginEnabled();
+    void updateLoginSettingsEnabled();
     bool getAccountBoolConfig(const QString &key) const;
     UserDBusProxy *userInter(const QString &userName) const;
     CreationResult *createAccountInternal(const User *user);

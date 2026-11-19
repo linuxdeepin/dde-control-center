@@ -580,7 +580,7 @@ DccObject {
             weight: 20
             pageType: DccObject.Editor
             visible: dccData.isQuickLoginVisible
-            enabled: dccData.currentUserId() === settings.userId
+            enabled: dccData.currentUserId() === settings.userId && dccData.loginSettingsEnabled
             page: Switch {
                 checked: settings.noQuickLoginChecked
                 onCheckedChanged: {
@@ -601,7 +601,7 @@ DccObject {
             weight: 10
             pageType: DccObject.Editor
             visible: dccData.isAutoLoginVisable()
-            enabled: dccData.currentUserId() === settings.userId && dccData.autoLoginEnabled
+            enabled: dccData.currentUserId() === settings.userId && dccData.loginSettingsEnabled
             page: Switch {
                 checked: settings.autoLoginChecked
                 onCheckedChanged: {
@@ -645,7 +645,7 @@ DccObject {
             weight: 30
             pageType: DccObject.Editor
             visible: dccData.isNoPassWordLoginVisable()
-            enabled: dccData.currentUserId() === settings.userId
+            enabled: dccData.currentUserId() === settings.userId && dccData.loginSettingsEnabled
             page: Switch {
                 checked: settings.nopasswdLoginChecked
                 onCheckedChanged: {
