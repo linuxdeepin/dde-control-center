@@ -2170,6 +2170,14 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <source>Decrease screen brightness on power saver</source>
         <translation>Vähendada ekraani kuumust põhjusega</translation>
     </message>
+    <message>
+        <source>Device idle power saving</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reduce the power consumption of idle USB, PCIe and SATA storage devices when using battery to extend battery life. May affect device response speed or stability.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>GroupObject</name>
