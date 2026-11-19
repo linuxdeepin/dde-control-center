@@ -708,7 +708,7 @@ DccObject {
             weight: 20
             pageType: DccObject.Editor
             visible: dccData.isQuickLoginVisible && !DccApp.isTreeland()
-            enabled: dccData.currentUserId() === settings.userId
+            enabled: dccData.currentUserId() === settings.userId && dccData.loginSettingsEnabled
             page: Switch {
                 Accessible.id: "AccountSettings_Switch"
                 checked: settings.noQuickLoginChecked
@@ -731,7 +731,7 @@ DccObject {
             weight: 10
             pageType: DccObject.Editor
             visible: dccData.isAutoLoginVisable()
-            enabled: dccData.currentUserId() === settings.userId && dccData.autoLoginEnabled
+            enabled: dccData.currentUserId() === settings.userId && dccData.loginSettingsEnabled
             page: Switch {
                 Accessible.id: "AccountSettings_Switch_2"
                 checked: settings.autoLoginChecked
@@ -777,7 +777,7 @@ DccObject {
             weight: 30
             pageType: DccObject.Editor
             visible: dccData.isNoPassWordLoginVisable()
-            enabled: dccData.currentUserId() === settings.userId
+            enabled: dccData.currentUserId() === settings.userId && dccData.loginSettingsEnabled
             page: Switch {
                 Accessible.id: "AccountSettings_Switch_3"
                 checked: settings.nopasswdLoginChecked
