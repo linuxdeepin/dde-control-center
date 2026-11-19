@@ -2181,6 +2181,14 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
         <source>Decrease screen brightness on power saver</source>
         <translation>Zmniejsz jasność ekranu w trybie oszczędzania energii</translation>
     </message>
+    <message>
+        <source>Device idle power saving</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reduce the power consumption of idle USB, PCIe and SATA storage devices when using battery to extend battery life. May affect device response speed or stability.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>GroupObject</name>
