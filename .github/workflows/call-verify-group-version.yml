@@ -12,3 +12,4 @@ permissions:
 jobs:
   verify:
     uses: linuxdeepin/.github/.github/workflows/verify-group-version.yml@master
+    secrets: inherit
