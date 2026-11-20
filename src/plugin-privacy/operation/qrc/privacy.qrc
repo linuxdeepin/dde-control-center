@@ -4,7 +4,6 @@
     </qresource>
 
     <qresource prefix="/dsg">
-        <file>icons/arrow-down.dci</file>
         <file>icons/security_folder.dci</file>
         <file>icons/security_camera.dci</file>
     </qresource>
