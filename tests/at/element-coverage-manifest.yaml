@@ -1,0 +1,126 @@
+version: '1.0'
+source: at-case-authoring:element-map.yaml
+scan_total: 24
+elements:
+  powerPlans0:
+    role: radio button
+    ui_name: 高性能模式
+    desc: 高性能电源计划选项
+    locator: accessible_id
+  powerPlans1:
+    role: radio button
+    ui_name: 平衡性能模式
+    desc: 平衡性能电源计划选项
+    locator: accessible_id
+  powerPlans2:
+    role: radio button
+    ui_name: 均衡模式
+    desc: 均衡电源计划选项
+    locator: accessible_id
+  powerPlans3:
+    role: radio button
+    ui_name: 节能模式
+    desc: 节能电源计划选项
+    locator: accessible_id
+  autoPowerSavingOnLowBattery:
+    role: check box
+    ui_name: 低电量自动省电开关
+    desc: 低电量时自动开启省电模式
+    locator: accessible_id
+  lowPowerThreshold:
+    role: combo box
+    ui_name: 低电量阈值选择器
+    desc: 低电量阈值选择器（10%-50%）
+    locator: accessible_id
+  autoPowerSavingOnBattery:
+    role: check box
+    ui_name: 使用电池时自动省电开关
+    desc: 使用电池时自动开启省电模式
+    locator: accessible_id
+  decreaseBrightness:
+    role: slider
+    ui_name: 降低屏幕亮度滑块
+    desc: 节能模式降低屏幕亮度滑块（10%-40%）
+    locator: accessible_id
+  passwordIsRequiredToWakeUpTheComputer:
+    role: check box
+    ui_name: 唤醒计算机需要密码开关
+    desc: 唤醒计算机时需要密码
+    locator: accessible_id
+  passwordIsRequiredToWakeUpTheMonitor:
+    role: check box
+    ui_name: 唤醒显示器需要密码开关
+    desc: 唤醒显示器时需要密码
+    locator: accessible_id
+  timedPoweroff:
+    role: check box
+    ui_name: 定时任务开关
+    desc: 定时关机功能开关
+    locator: accessible_id
+  poweroffTime:
+    role: spin button
+    ui_name: 任务时间选择器
+    desc: 定时关机时间选择器（小时/分钟）
+    locator: accessible_id
+  repeatDays:
+    role: combo box
+    ui_name: 重复方式选择器
+    desc: 定时关机重复方式选择器（单次/每天/工作日/自定义）
+    locator: accessible_id
+  repeatDaysEdit:
+    role: push button
+    ui_name: 编辑重复日期按钮
+    desc: 编辑自定义重复日期按钮
+    locator: accessible_id
+  turnOffTheMonitorAfter:
+    role: slider
+    ui_name: 关闭显示器时间滑块
+    desc: 关闭显示器延迟时间滑块（使用电源/使用电池页共享objectName）
+    locator: accessible_id
+  lockScreenAfter:
+    role: slider
+    ui_name: 锁定屏幕时间滑块
+    desc: 锁定屏幕延迟时间滑块（使用电源/使用电池页共享objectName）
+    locator: accessible_id
+  computerSuspendsAfter:
+    role: slider
+    ui_name: 电脑休眠时间滑块
+    desc: 电脑休眠延迟时间滑块（使用电源/使用电池页共享objectName）
+    locator: accessible_id
+  whenTheLidIsClosed:
+    role: combo box
+    ui_name: 合上盖子时操作选择器
+    desc: 合上盖子时的操作选择器（使用电源/使用电池页共享objectName）
+    locator: accessible_id
+  whenThePowerButtonIsPressed:
+    role: combo box
+    ui_name: 按下电源键时操作选择器
+    desc: 按下电源键时的操作选择器（使用电源/使用电池页共享objectName）
+    locator: accessible_id
+  lowBatteryNotification:
+    role: combo box
+    ui_name: 低电量通知选择器
+    desc: 低电量通知阈值选择器（禁用/10%/15%/20%/25%）
+    locator: accessible_id
+  lowBatteryOperator:
+    role: combo box
+    ui_name: 低电量操作选择器
+    desc: 低电量操作选择器（自动休眠/自动冬眠）
+    locator: accessible_id
+  lowBatteryThreshold:
+    role: combo box
+    ui_name: 低电量阈值选择器(使用电池)
+    desc: 低电量阈值选择器（1%-9%）
+    locator: accessible_id
+  displayRemainingUsingAndChargingTime:
+    role: check box
+    ui_name: 显示剩余充放电时间开关
+    desc: 显示剩余使用和充电时间开关
+    locator: accessible_id
+  maximumCapacity:
+    role: label
+    ui_name: 最大容量标签
+    desc: 最大容量显示标签（只读）
+    locator: accessible_id
+transient_items: []
+unresolved: []

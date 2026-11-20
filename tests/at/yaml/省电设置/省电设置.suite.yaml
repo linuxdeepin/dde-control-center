@@ -1,0 +1,97 @@
+name: 省电设置_suite
+app: dde-control-center
+module: 省电设置
+setup:
+- action: session_start
+  command: dde-control-center
+  wait: 3.0
+suites:
+- id: suite_省电设置_001_s1
+  name: 低电量自动省电开关开启/关闭
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: autoPowerSavingOnLowBattery
+      role: check box
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: autoPowerSavingOnLowBattery
+      role: check box
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: autoPowerSavingOnLowBattery
+      role: check box
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: lowPowerThreshold
+      role: combo box
+- id: suite_省电设置_002_s1
+  name: 低电量阈值选择10%和50%
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: lowPowerThreshold
+      role: combo box
+    do: click
+  - step_type: action
+    action: keyboard_type
+    text: 10%
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: lowPowerThreshold
+      role: combo box
+    do: click
+  - step_type: action
+    action: keyboard_type
+    text: 50%
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: lowPowerThreshold
+      role: combo box
+- id: suite_省电设置_003_s1
+  name: 使用电池时自动省电开关开启/关闭
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: autoPowerSavingOnBattery
+      role: check box
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: autoPowerSavingOnBattery
+      role: check box
+- id: suite_省电设置_004_s1
+  name: 降低屏幕亮度滑块设置为10%
+  description: ''
+  steps:
+  - step_type: action
+    action: element_set_value
+    selector:
+      accessible_id: decreaseBrightness
+      role: slider
+    text: 10%
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: decreaseBrightness
+      role: slider
+teardown:
+- action: session_stop

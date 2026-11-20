@@ -1,0 +1,59 @@
+name: 电源计划_suite
+app: dde-control-center
+module: 电源计划
+setup:
+- action: session_start
+  command: dde-control-center
+  wait: 3.0
+suites:
+- id: suite_电源计划_001_s1
+  name: 电源计划选择高性能/平衡性能/均衡/节能模式
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: powerPlans0
+      role: radio button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: powerPlans1
+      role: radio button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: powerPlans2
+      role: radio button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: powerPlans3
+      role: radio button
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: powerPlans0
+      role: radio button
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: powerPlans1
+      role: radio button
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: powerPlans2
+      role: radio button
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: powerPlans3
+      role: radio button
+teardown:
+- action: session_stop

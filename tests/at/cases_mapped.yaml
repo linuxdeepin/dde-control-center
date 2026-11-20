@@ -1,0 +1,394 @@
+version: '1.0'
+cases:
+- id: suite_使用电池_001_s1
+  name: 使用电池-低电量通知与低电量操作设置
+  module: 使用电池
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: lowBatteryNotification
+      role: combo box
+    do: click
+  - step_type: action
+    action: keyboard_type
+    text: 20%
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: lowBatteryOperator
+      role: combo box
+    do: click
+  - step_type: action
+    action: keyboard_type
+    text: 自动休眠
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: lowBatteryNotification
+      role: combo box
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: lowBatteryOperator
+      role: combo box
+- id: suite_使用电池_002_s1
+  name: 使用电池-低电量阈值设置5%
+  module: 使用电池
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: lowBatteryThreshold
+      role: combo box
+    do: click
+  - step_type: action
+    action: keyboard_type
+    text: 5%
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: lowBatteryThreshold
+      role: combo box
+- id: suite_使用电池_003_s1
+  name: 使用电池-显示剩余充放电时间开关切换
+  module: 使用电池
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: displayRemainingUsingAndChargingTime
+      role: check box
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: displayRemainingUsingAndChargingTime
+      role: check box
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: displayRemainingUsingAndChargingTime
+      role: check box
+- id: suite_使用电池_004_s1
+  name: 使用电池-查看最大容量标签
+  module: 使用电池
+  steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: maximumCapacity
+      role: label
+- id: suite_使用电源_001_s1
+  name: 使用电源-关闭显示器/锁定屏幕/电脑休眠时间滑块设置
+  module: 使用电源
+  steps:
+  - step_type: action
+    action: element_set_value
+    selector:
+      accessible_id: turnOffTheMonitorAfter
+      role: slider
+    text: '5'
+  - step_type: action
+    action: element_set_value
+    selector:
+      accessible_id: lockScreenAfter
+      role: slider
+    text: '5'
+  - step_type: action
+    action: element_set_value
+    selector:
+      accessible_id: computerSuspendsAfter
+      role: slider
+    text: '15'
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: turnOffTheMonitorAfter
+      role: slider
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: lockScreenAfter
+      role: slider
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: computerSuspendsAfter
+      role: slider
+- id: suite_使用电源_002_s1
+  name: 使用电源-合上盖子操作和电源键操作设置
+  module: 使用电源
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: whenTheLidIsClosed
+      role: combo box
+    do: click
+  - step_type: action
+    action: keyboard_type
+    text: 无操作
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: whenThePowerButtonIsPressed
+      role: combo box
+    do: click
+  - step_type: action
+    action: keyboard_type
+    text: 关机
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: whenTheLidIsClosed
+      role: combo box
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: whenThePowerButtonIsPressed
+      role: combo box
+- id: suite_唤醒设置_001_s1
+  name: 唤醒计算机/显示器需要密码开关切换
+  module: 唤醒设置
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: passwordIsRequiredToWakeUpTheComputer
+      role: check box
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: passwordIsRequiredToWakeUpTheComputer
+      role: check box
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: passwordIsRequiredToWakeUpTheMonitor
+      role: check box
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: passwordIsRequiredToWakeUpTheMonitor
+      role: check box
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: passwordIsRequiredToWakeUpTheComputer
+      role: check box
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: passwordIsRequiredToWakeUpTheMonitor
+      role: check box
+- id: suite_定时任务_001_s1
+  name: 定时关机开关开启/关闭
+  module: 定时任务
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: timedPoweroff
+      role: check box
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: timedPoweroff
+      role: check box
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: timedPoweroff
+      role: check box
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: poweroffTime
+      role: spin button
+- id: suite_定时任务_002_s1
+  name: 设置关机时间为09:00
+  module: 定时任务
+  steps:
+  - step_type: action
+    action: element_set_value
+    selector:
+      accessible_id: poweroffTime
+      role: spin button
+    text: 0900
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: poweroffTime
+      role: spin button
+- id: suite_定时任务_003_s1
+  name: 设置重复方式为每天
+  module: 定时任务
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: repeatDays
+      role: combo box
+    do: click
+  - step_type: action
+    action: keyboard_type
+    text: 每天
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: repeatDays
+      role: combo box
+- id: suite_定时任务_004_s1
+  name: 点击编辑重复日期按钮
+  module: 定时任务
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: repeatDaysEdit
+      role: push button
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: repeatDaysEdit
+      role: push button
+- id: suite_电源计划_001_s1
+  name: 电源计划选择高性能/平衡性能/均衡/节能模式
+  module: 电源计划
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: powerPlans0
+      role: radio button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: powerPlans1
+      role: radio button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: powerPlans2
+      role: radio button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: powerPlans3
+      role: radio button
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: powerPlans0
+      role: radio button
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: powerPlans1
+      role: radio button
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: powerPlans2
+      role: radio button
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: powerPlans3
+      role: radio button
+- id: suite_省电设置_001_s1
+  name: 低电量自动省电开关开启/关闭
+  module: 省电设置
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: autoPowerSavingOnLowBattery
+      role: check box
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: autoPowerSavingOnLowBattery
+      role: check box
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: autoPowerSavingOnLowBattery
+      role: check box
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: lowPowerThreshold
+      role: combo box
+- id: suite_省电设置_002_s1
+  name: 低电量阈值选择10%和50%
+  module: 省电设置
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: lowPowerThreshold
+      role: combo box
+    do: click
+  - step_type: action
+    action: keyboard_type
+    text: 10%
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: lowPowerThreshold
+      role: combo box
+    do: click
+  - step_type: action
+    action: keyboard_type
+    text: 50%
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: lowPowerThreshold
+      role: combo box
+- id: suite_省电设置_003_s1
+  name: 使用电池时自动省电开关开启/关闭
+  module: 省电设置
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: autoPowerSavingOnBattery
+      role: check box
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: autoPowerSavingOnBattery
+      role: check box
+- id: suite_省电设置_004_s1
+  name: 降低屏幕亮度滑块设置为10%
+  module: 省电设置
+  steps:
+  - step_type: action
+    action: element_set_value
+    selector:
+      accessible_id: decreaseBrightness
+      role: slider
+    text: 10%
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: decreaseBrightness
+      role: slider
