@@ -3642,7 +3642,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Hilf uns das Produkt zu verbessern, indem Du dem Nutzererfahrungsprogramm beitrittst</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
