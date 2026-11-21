@@ -1667,11 +1667,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Um unsignierte Apps installieren und starten zu können, rufen Sie bitte das  &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Sicherheits-Center &lt;/a&gt; auf, um die Einstellungen dementsprechend ändern zu können.</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Um unsignierte Apps installieren und starten zu können, rufen Sie bitte das Sicherheits-Center auf, um die Einstellungen dementsprechend ändern zu können.</translation>
     </message>
     <message>
         <source>You have entered developer mode</source>
