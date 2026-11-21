@@ -2182,22 +2182,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Reduce the power consumption of idle USB, PCIe and SATA storage devices when using battery to extend battery life. May affect device response speed or stability.</source>
-        <translation type="unfinished"/>
+        <translation>Energieverbrauch im Leerlauf von USB, PCIe und SATA  reduzieren, falls das Gerät auf Akku läuft, um Batterielebensdauer zu verlängern. Das kann Reaktionszeit oder Stabilität des Geräts reduzieren.</translation>
     </message>
 </context>
 <context>
     <name>GroupObject</name>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>System</translation>
     </message>
     <message>
         <source>Common settings</source>
-        <translation type="unfinished"/>
+        <translation>Allgemeine Einstellungen</translation>
     </message>
     <message>
         <source>Bluetooth and Devices</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth und Geräte</translation>
     </message>
 </context>
 <context>
