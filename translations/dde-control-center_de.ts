@@ -1419,7 +1419,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
-        <translation type="unfinished"/>
+        <translation>Sind Sie sicher, dass Sie die in der Cloud gespeicherten Systemeinstellungen und persönlichen Daten löschen möchten?</translation>
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
@@ -1647,7 +1647,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System logging level</source>
-        <translation type="unfinished"/>
+        <translation>Ebene der Systemprotokollierung</translation>
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
