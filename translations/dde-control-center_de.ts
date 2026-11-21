@@ -1190,7 +1190,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation>Systemsprache und Regionalforate</translation>
+        <translation>Systemsprache und Regionalformate</translation>
     </message>
 </context>
 <context>
