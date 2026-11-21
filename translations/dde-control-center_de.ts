@@ -1361,7 +1361,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation>Lokales Passwort über %1-ID zurücksetzen, für den Fall, dass Sie es vergessen.</translation>
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
