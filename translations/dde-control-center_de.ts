@@ -1365,7 +1365,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation type="unfinished"/>
+        <translation>Um obige Möglichkeiten nutzen zu können, rufen Sie bitte Kontrollzentrum – Konten auf und schalten die entsprechenden Möglichkeiten dazu.</translation>
     </message>
 </context>
 <context>
