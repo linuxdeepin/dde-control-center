@@ -2046,14 +2046,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Fashion Mode</source>
-        <translation type="unfinished"/>
+        <translation>Design-Modus</translation>
     </message>
 </context>
 <context>
     <name>DomainPasswordErrorDialog</name>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Bestätigen</translation>
     </message>
 </context>
 <context>
@@ -2178,7 +2178,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Device idle power saving</source>
-        <translation type="unfinished"/>
+        <translation>Energiesparen im Leerlauf</translation>
     </message>
     <message>
         <source>Reduce the power consumption of idle USB, PCIe and SATA storage devices when using battery to extend battery life. May affect device response speed or stability.</source>
