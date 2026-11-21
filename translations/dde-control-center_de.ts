@@ -3827,7 +3827,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Edge Touch Gestures</source>
-        <translation type="unfinished"/>
+        <translation>Touch-Ecken-Gesten</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
@@ -4346,7 +4346,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Please confirm the shortcut conflict again.</source>
-        <translation type="unfinished"/>
+        <translation>Bitte bestätigen sie den Tastenkürzel-Konflikt erneut.</translation>
     </message>
 </context>
 <context>
