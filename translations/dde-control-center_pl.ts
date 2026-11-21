@@ -2194,7 +2194,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Device idle power saving</source>
-        <translation type="unfinished"/>
+        <translation>Oszczędzanie energii urządzeń w trybie bezczynności</translation>
     </message>
     <message>
         <source>Reduce the power consumption of idle USB, PCIe and SATA storage devices when using battery to extend battery life. May affect device response speed or stability.</source>
