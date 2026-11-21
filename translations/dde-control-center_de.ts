@@ -2042,7 +2042,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
-        <translation type="unfinished"/>
+        <translation>App-Symbole sind im Design-Modus immer in Gruppen im Dock angeordnet.</translation>
     </message>
     <message>
         <source>Fashion Mode</source>
