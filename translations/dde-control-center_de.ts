@@ -1651,7 +1651,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
-        <translation type="unfinished"/>
+        <translation>Ein Ändern der Optionen bewirkt eine detailliertere Protokollierung und kann ihr System verlangsamen und/oder den Speicerbedarf erhöhen.</translation>
     </message>
     <message>
         <source>Off</source>
