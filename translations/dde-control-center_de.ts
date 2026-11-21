@@ -800,7 +800,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Camera is not enabled</source>
-        <translation type="unfinished"/>
+        <translation>Kamera nicht angeschaltet</translation>
     </message>
 </context>
 <context>
@@ -931,23 +931,23 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Systemstartmenü</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Verwalten Sie Ihr Systemstartmenü</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Entwickleroptionen</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Entwickler-Root-Rechteverwaltung </translation>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Entwickler-Debugging-Optionen</translation>
     </message>
 </context>
 <context>
@@ -1186,11 +1186,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>Sprache und Region</translation>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Systemsprache und Regionalforate</translation>
     </message>
 </context>
 <context>
