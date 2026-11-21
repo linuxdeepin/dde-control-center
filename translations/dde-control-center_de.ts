@@ -3708,7 +3708,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Show seconds in the dock clock</source>
-        <translation type="unfinished"/>
+        <translation>Sekunden in der Dock-Uhr anzeigen</translation>
     </message>
     <message>
         <source>system time zone</source>
@@ -3788,7 +3788,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation type="unfinished"/>
+        <translation>Hier einstellen, wenn Sie den Touch-Screen verbinden</translation>
     </message>
 </context>
 <context>
