@@ -19,15 +19,11 @@ DccEditorItem {
             dccObj: model.item
             dccObjItem: control
         }
-        D.IconLabel {
-            icon {
-                width: 12
-                height: 12
-                name: "arrow_ordinary_right"
-                palette: D.DTK.makeIconPalette(control.palette)
-                mode: control.D.ColorSelector.controlState
-                theme: control.D.ColorSelector.controlTheme
-            }
+        D.DciIcon {
+            palette: D.DTK.makeIconPalette(control.palette)
+            mode: control.D.ColorSelector.controlState
+            theme: control.D.ColorSelector.controlTheme
+            name: "arrow_ordinary_right"
         }
     }
     onClicked: {
