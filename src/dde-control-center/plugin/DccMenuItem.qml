@@ -6,6 +6,7 @@ import QtQuick.Controls 2.15
 import org.deepin.dtk 1.0 as D
 
 DccEditorItem {
+    id: control
     topInset: 5
     leftPadding: 14
     rightPadding: 10
@@ -13,11 +14,11 @@ DccEditorItem {
     topPadding: topInset
     bottomPadding: bottomInset
     activeFocusOnTab: false
-    rightItem: D.IconLabel {
-        icon {
-            name: "arrow_ordinary_right"
-            palette: D.DTK.makeIconPalette(palette)
-        }
+    rightItem: D.DciIcon {
+        palette: D.DTK.makeIconPalette(control.palette)
+        mode: control.D.ColorSelector.controlState
+        theme: control.D.ColorSelector.controlTheme
+        name: "arrow_ordinary_right"
     }
     onClicked: DccApp.showPage(model.item)
 }
