@@ -2054,6 +2054,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
         <translation>時尚模式下不支援拆分應用圖標，任務欄應用圖標始終合併顯示</translation>
     </message>
+    <message>
+        <source>Fashion Mode</source>
+        <translation>時尚模式</translation>
+    </message>
 </context>
 <context>
     <name>DomainPasswordErrorDialog</name>
@@ -2135,14 +2139,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>使用電池時自動開啟節能模式</translation>
     </message>
     <message>
-        <source>Device idle power saving</source>
-        <translation>裝置閒置節能</translation>
-    </message>
-    <message>
-        <source>Reduce the power consumption of idle USB, PCIe and SATA storage devices when using battery to extend battery life. May affect device response speed or stability.</source>
-        <translation>使用電池時降低部分閒置的 USB、PCIe 及 SATA 儲存裝置的功耗，以延長續航時間。可能影響裝置回應速度或穩定性。</translation>
-    </message>
-    <message>
         <source>Wakeup Settings</source>
         <translation>喚醒設定</translation>
     </message>
@@ -2189,6 +2185,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>節能模式時降低螢幕亮度</translation>
+    </message>
+    <message>
+        <source>Device idle power saving</source>
+        <translation>裝置閒置節能</translation>
+    </message>
+    <message>
+        <source>Reduce the power consumption of idle USB, PCIe and SATA storage devices when using battery to extend battery life. May affect device response speed or stability.</source>
+        <translation>使用電池時降低部分閒置的 USB、PCIe 及 SATA 儲存裝置的功耗，以延長續航時間。可能影響裝置回應速度或穩定性。</translation>
     </message>
 </context>
 <context>
