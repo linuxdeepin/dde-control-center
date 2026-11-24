@@ -525,28 +525,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
-    <name>BluetoothAdapterItem</name>
-    <message>
-        <source>My Devices</source>
-        <translation>Meine Geräte</translation>
-    </message>
-</context>
-<context>
-    <name>BluetoothApplet</name>
-    <message>
-        <source>Bluetooth settings</source>
-        <translation>Bluetooth-Einstellungen</translation>
-    </message>
-    <message>
-        <source>Disable [Airplane Mode](#) first if you want to connect to a Bluetooth</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Turned off</source>
-        <translation>Ausgeschaltet</translation>
-    </message>
-</context>
-<context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
@@ -578,56 +556,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Not connected</source>
         <translation>Nicht verbunden</translation>
-    </message>
-</context>
-<context>
-    <name>BluetoothItem</name>
-    <message>
-        <source>Bluetooth</source>
-        <translation>Bluetooth</translation>
-    </message>
-    <message>
-        <source>Turn off</source>
-        <translation>Ausschalten</translation>
-    </message>
-    <message>
-        <source>Turn on</source>
-        <translation>Einschalten</translation>
-    </message>
-    <message>
-        <source>Bluetooth settings</source>
-        <translation>Bluetooth-Einstellungen</translation>
-    </message>
-    <message>
-        <source>%1 connected</source>
-        <translation>%1 verbunden</translation>
-    </message>
-    <message>
-        <source>Connected %1</source>
-        <translation>%1 verbunden</translation>
-    </message>
-    <message>
-        <source>Connecting...</source>
-        <translation>Wird verbunden ...</translation>
-    </message>
-    <message>
-        <source>Not connected</source>
-        <translation>Nicht verbunden</translation>
-    </message>
-    <message>
-        <source>Turned off</source>
-        <translation>Ausgeschaltet</translation>
-    </message>
-    <message>
-        <source>Off</source>
-        <translation>Aus</translation>
-    </message>
-</context>
-<context>
-    <name>BluetoothPlugin</name>
-    <message>
-        <source>Bluetooth</source>
-        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -715,31 +643,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
         <translation>Größe der Logo-Animation in der Startsequenz einstellen</translation>
-    </message>
-</context>
-<context>
-    <name>BrightnessApplet</name>
-    <message>
-        <source>Brightness</source>
-        <translation>Helligkeit</translation>
-    </message>
-    <message>
-        <source>Display settings</source>
-        <translation>Anzeigeeinstellungen</translation>
-    </message>
-</context>
-<context>
-    <name>BrightnessItem</name>
-    <message>
-        <source>Display settings</source>
-        <translation>Anzeigeeinstellungen</translation>
-    </message>
-</context>
-<context>
-    <name>BrightnessPlugin</name>
-    <message>
-        <source>Brightness</source>
-        <translation>Helligkeit</translation>
     </message>
 </context>
 <context>
@@ -897,7 +800,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Camera is not enabled</source>
-        <translation type="unfinished"/>
+        <translation>Kamera nicht angeschaltet</translation>
     </message>
 </context>
 <context>
@@ -1028,23 +931,23 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Systemstartmenü</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Verwalten Sie Ihr Systemstartmenü</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Entwickleroptionen</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Entwickler-Root-Rechteverwaltung </translation>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Entwickler-Debugging-Optionen</translation>
     </message>
 </context>
 <context>
@@ -1283,11 +1186,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>Sprache und Region</translation>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Systemsprache und Regionalformate</translation>
     </message>
 </context>
 <context>
@@ -1458,11 +1361,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation>Lokales Passwort über %1-ID zurücksetzen, für den Fall, dass Sie es vergessen.</translation>
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation type="unfinished"/>
+        <translation>Um obige Möglichkeiten nutzen zu können, rufen Sie bitte Kontrollzentrum – Konten auf und schalten die entsprechenden Möglichkeiten dazu.</translation>
     </message>
 </context>
 <context>
@@ -1516,7 +1419,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
-        <translation type="unfinished"/>
+        <translation>Sind Sie sicher, dass Sie die in der Cloud gespeicherten Systemeinstellungen und persönlichen Daten löschen möchten?</translation>
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
@@ -1744,11 +1647,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System logging level</source>
-        <translation type="unfinished"/>
+        <translation>Ebene der Systemprotokollierung</translation>
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
-        <translation type="unfinished"/>
+        <translation>Ein Ändern der Optionen bewirkt eine detailliertere Protokollierung und kann ihr System verlangsamen und/oder den Speicerbedarf erhöhen.</translation>
     </message>
     <message>
         <source>Off</source>
@@ -1760,15 +1663,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
-        <translation type="unfinished"/>
+        <translation>Das Einrichten der Änderung der Option kann bis zu einer Minute dauern, nach der Meldung des Erfolgs starten Sie bitte ihren Rechner neu um die Änderungen einzurichten.</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Um unsignierte Apps installieren und starten zu können, rufen Sie bitte das  &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Sicherheits-Center &lt;/a&gt; auf, um die Einstellungen dementsprechend ändern zu können.</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Um unsignierte Apps installieren und starten zu können, rufen Sie bitte das Sicherheits-Center auf, um die Einstellungen dementsprechend ändern zu können.</translation>
     </message>
     <message>
         <source>You have entered developer mode</source>
@@ -1792,18 +1695,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
-        <translation type="unfinished"/>
+        <translation>Ein Aufheben des Schutzes entsperrt die System-Verzeichnisse, das birgt ein hohes Risiko für Systemschäden.</translation>
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>DeviceControlWidget</name>
-    <message>
-        <source>Other Devices</source>
-        <translation>Andere Geräte</translation>
+        <translation>Schutz einrichten, um Systemverzeichnisse zu sperren und hohe Stabilität zu gewährleisten.</translation>
     </message>
 </context>
 <context>
@@ -2146,112 +2042,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
-        <translation type="unfinished"/>
+        <translation>App-Symbole sind im Design-Modus immer in Gruppen im Dock angeordnet.</translation>
     </message>
     <message>
         <source>Fashion Mode</source>
-        <translation type="unfinished"/>
+        <translation>Design-Modus</translation>
     </message>
 </context>
 <context>
     <name>DomainPasswordErrorDialog</name>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>EyeComfortModeItem</name>
-    <message>
-        <source>Eye Comfort</source>
-        <translation>Augenkomfort</translation>
-    </message>
-    <message>
-        <source>Display settings</source>
-        <translation>Anzeigeeinstellungen</translation>
-    </message>
-    <message>
-        <source>Eye comfort</source>
-        <translation>Augenkomfort</translation>
-    </message>
-    <message>
-        <source>Theme</source>
-        <translation>Thema</translation>
-    </message>
-    <message>
-        <source>On</source>
-        <translation>Ein</translation>
-    </message>
-    <message>
-        <source>Off</source>
-        <translation>Aus</translation>
-    </message>
-    <message>
-        <source>Light</source>
-        <translation>Hell</translation>
-    </message>
-    <message>
-        <source>Dark</source>
-        <translation>Dunkel</translation>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation>Automatisch</translation>
-    </message>
-    <message>
-        <source>Disable eye comfort</source>
-        <translation>Augenkomfort deaktivieren</translation>
-    </message>
-    <message>
-        <source>Enable eye comfort</source>
-        <translation>Augenkomfort aktivieren</translation>
-    </message>
-    <message>
-        <source>Display Settings</source>
-        <translation>Anzeigeeinstellungen</translation>
-    </message>
-    <message>
-        <source>Eye comfort enabled</source>
-        <translation>Augenkomfort aktiviert</translation>
-    </message>
-    <message>
-        <source>Eye comfort disabled</source>
-        <translation>Augenkomfort deaktiviert</translation>
-    </message>
-    <message>
-        <source>Theme: Light</source>
-        <translation>Thema: Hell</translation>
-    </message>
-    <message>
-        <source>Theme: Dark</source>
-        <translation>Thema: Dunkel</translation>
-    </message>
-    <message>
-        <source>Theme: Auto</source>
-        <translation>Thema: Automatisch</translation>
-    </message>
-    <message>
-        <source>Visual effect</source>
-        <translation>Visueller Effekt</translation>
-    </message>
-</context>
-<context>
-    <name>EyeComfortmodeApplet</name>
-    <message>
-        <source>Light</source>
-        <translation>Hell</translation>
-    </message>
-    <message>
-        <source>Dark</source>
-        <translation>Dunkel</translation>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation>Automatisch</translation>
-    </message>
-    <message>
-        <source>Theme</source>
-        <translation>Thema</translation>
+        <translation>Bestätigen</translation>
     </message>
 </context>
 <context>
@@ -2376,26 +2178,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Device idle power saving</source>
-        <translation type="unfinished"/>
+        <translation>Energiesparen im Leerlauf</translation>
     </message>
     <message>
         <source>Reduce the power consumption of idle USB, PCIe and SATA storage devices when using battery to extend battery life. May affect device response speed or stability.</source>
-        <translation type="unfinished"/>
+        <translation>Energieverbrauch im Leerlauf von USB, PCIe und SATA  reduzieren, falls das Gerät auf Akku läuft, um Batterielebensdauer zu verlängern. Das kann Reaktionszeit oder Stabilität des Geräts reduzieren.</translation>
     </message>
 </context>
 <context>
     <name>GroupObject</name>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>System</translation>
     </message>
     <message>
         <source>Common settings</source>
-        <translation type="unfinished"/>
+        <translation>Allgemeine Einstellungen</translation>
     </message>
     <message>
         <source>Bluetooth and Devices</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth und Geräte</translation>
     </message>
 </context>
 <context>
@@ -2594,17 +2396,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Input Device</source>
         <translation>Eingabegerät</translation>
-    </message>
-</context>
-<context>
-    <name>MonitorItemWidget</name>
-    <message>
-        <source>Connecting</source>
-        <translation>Wird verbunden</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Abbrechen</translation>
     </message>
 </context>
 <context>
@@ -3010,13 +2801,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Wählen Sie aus, welche Symbole im Dock erscheinen sollen</translation>
-    </message>
-</context>
-<context>
-    <name>PluginItemWidget</name>
-    <message>
-        <source>Disconnect</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3527,7 +3311,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The name cannot exceed 128 characters.</source>
-        <translation type="unfinished"/>
+        <translation>Der Name darf nicht mehr als 128 Zeichen haben.</translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
@@ -3551,15 +3335,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Tastenkürzel-Erfassung fehlgeschlagen. Bitte erneut probieren.</translation>
     </message>
     <message>
         <source>Shortcut input timed out. Try again.</source>
-        <translation type="unfinished"/>
+        <translation>Tastenkürzeleingabephase abgelaufen. Bitte erneut versuchen</translation>
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"/>
+        <translation>Ungültiges Tastenkürzel. Wählen Sie ein anderes.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -3618,15 +3402,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Tastenkürzel-Erfassung fehlgeschlagen. Bitte erneut probieren.</translation>
     </message>
     <message>
         <source>Shortcut input timed out. Try again.</source>
-        <translation type="unfinished"/>
+        <translation>Tastenkürzeleingabephase abgelaufen. Bitte erneut versuchen</translation>
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"/>
+        <translation>Ungültiges Tastenkürzel. Wählen Sie ein anderes.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -3642,21 +3426,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Output, input, sound effects, devices</source>
         <translation>Ausgabe, Eingabe, Klangeffekte, Geräte</translation>
-    </message>
-</context>
-<context>
-    <name>SoundApplet</name>
-    <message>
-        <source>Volume</source>
-        <translation>Lautstärke</translation>
-    </message>
-    <message>
-        <source>Output</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sound settings</source>
-        <translation>Toneinstellungen</translation>
     </message>
 </context>
 <context>
@@ -3764,36 +3533,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>SoundPlugin</name>
-    <message>
-        <source>Sound</source>
-        <translation>Ton</translation>
-    </message>
-</context>
-<context>
-    <name>SoundView</name>
-    <message>
-        <source>Unmute</source>
-        <translation>Stummschalten aufheben</translation>
-    </message>
-    <message>
-        <source>Mute</source>
-        <translation>Stummschalten</translation>
-    </message>
-    <message>
-        <source>Sound settings</source>
-        <translation>Toneinstellungen</translation>
-    </message>
-    <message>
-        <source>No output devices</source>
-        <translation>Keine Ausgabegeräte</translation>
-    </message>
-    <message>
-        <source>Volume %1</source>
-        <translation>Lautstärke %1</translation>
-    </message>
-</context>
-<context>
     <name>SpeakerPage</name>
     <message>
         <source>Mode</source>
@@ -3883,43 +3622,43 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Über diesen PC</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
+        <translation>Systemversion, Geräteinformationen</translation>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Hinweis zu Open-Source-Software</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Hinweise zu Open Source Software ansehen</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Benutzererfahrungsprogramm</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Hilf uns das Produkt zu verbessern, indem Du dem Nutzererfahrungsprogramm beitrittst</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Endbenutzer-Lizenzvertrag</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>Endbenutzer-Lizenzvertrag einsehen</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Datenschutzerklärung</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>Datenschutzerklärung einsehen</translation>
     </message>
 </context>
 <context>
@@ -3969,7 +3708,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Show seconds in the dock clock</source>
-        <translation type="unfinished"/>
+        <translation>Sekunden in der Dock-Uhr anzeigen</translation>
     </message>
     <message>
         <source>system time zone</source>
@@ -4049,7 +3788,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation type="unfinished"/>
+        <translation>Hier einstellen, wenn Sie den Touch-Screen verbinden</translation>
     </message>
 </context>
 <context>
@@ -4088,7 +3827,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Edge Touch Gestures</source>
-        <translation type="unfinished"/>
+        <translation>Touch-Ecken-Gesten</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
@@ -4607,7 +4346,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Please confirm the shortcut conflict again.</source>
-        <translation type="unfinished"/>
+        <translation>Bitte bestätigen sie den Tastenkürzel-Konflikt erneut.</translation>
     </message>
 </context>
 <context>
@@ -4701,86 +4440,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>Keine</translation>
-    </message>
-</context>
-<context>
-    <name>dde::wirelesscasting::StatePanel</name>
-    <message>
-        <source>No available casting wireless monitors found</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Disconnect</source>
-        <translation>Trennen</translation>
-    </message>
-    <message>
-        <source>Successfully cast the screen to %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The wireless card doesn&apos;t support this feature, and cannot cast the screen to a wireless monitor</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>You need to enable wireless network to cast the screen to a wireless monitor</source>
-        <translation>Sie müssen das Drahtlosnetzwerk aktivieren, um den Bildschirm an einen drahtlosen Monitor zu übertragen</translation>
-    </message>
-</context>
-<context>
-    <name>dde::wirelesscasting::WirelessCastingApplet</name>
-    <message>
-        <source>Wireless Casting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Multiple Display options</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Display settings</source>
-        <translation>Anzeigeeinstellungen</translation>
-    </message>
-    <message>
-        <source>Duplicate</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Extend</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Only on %1</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dde::wirelesscasting::WirelessCastingItem</name>
-    <message>
-        <source>Multiple services started</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Connecting</source>
-        <translation>Wird verbunden</translation>
-    </message>
-    <message>
-        <source>Not connected</source>
-        <translation>Nicht verbunden</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Display settings</source>
-        <translation>Anzeigeeinstellungen</translation>
-    </message>
-</context>
-<context>
-    <name>dde::wirelesscasting::WirelessCastingPlugin</name>
-    <message>
-        <source>Multiple Displays</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
