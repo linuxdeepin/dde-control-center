@@ -2191,7 +2191,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>裝置閒置節能</translation>
     </message>
     <message>
-        <source>Reduce the power consumption of idle USB, PCIe and SATA storage devices when using battery to extend battery life. May affect device response speed or stability.</source>
+        <source>Reduce power consumption of some idle USB, PCIe, and SATA storage devices when running on battery to extend battery life. May affect device responsiveness or stability.</source>
         <translation>使用電池時降低部分閒置的 USB、PCIe 及 SATA 儲存裝置的功耗，以延長續航時間。可能影響裝置回應速度或穩定性。</translation>
     </message>
 </context>
