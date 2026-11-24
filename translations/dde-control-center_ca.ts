@@ -2197,7 +2197,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>Estalvi d&apos;energia del dispositiu inactiu</translation>
     </message>
     <message>
-        <source>Reduce the power consumption of idle USB, PCIe and SATA storage devices when using battery to extend battery life. May affect device response speed or stability.</source>
+        <source>Reduce power consumption of some idle USB, PCIe, and SATA storage devices when running on battery to extend battery life. May affect device responsiveness or stability.</source>
         <translation>Redueix el consum d&apos;energia dels dispositius d&apos;emmagatzematge USB, PCIe i SATA inactius quan s&apos;usa la bateria per allargar-ne la durada. Pot afectar-ne la velocitat de resposta o l&apos;estabilitat del dispositiu.</translation>
     </message>
 </context>

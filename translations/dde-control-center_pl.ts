@@ -2197,7 +2197,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
         <translation>Oszczędzanie energii urządzeń w trybie bezczynności</translation>
     </message>
     <message>
-        <source>Reduce the power consumption of idle USB, PCIe and SATA storage devices when using battery to extend battery life. May affect device response speed or stability.</source>
+        <source>Reduce power consumption of some idle USB, PCIe, and SATA storage devices when running on battery to extend battery life. May affect device responsiveness or stability.</source>
         <translation>Zmniejsz zużycie energii urządzeń USB, PCIe i magazynów pamięci SATA pozostające w stanie bezczynności podczas pracy na baterii. Może to wpłynąć na ich szybkość reakcji lub stabilność.</translation>
     </message>
 </context>
