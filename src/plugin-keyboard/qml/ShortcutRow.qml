@@ -352,6 +352,7 @@ DccObject {
                 }
                 Label {
                     id: cancelLabel
+                    Accessible.id: "ShortcutRow_Label"
                     text: qsTranslate("Shortcuts", "Cancel")
                     visible: row.conflictActions
                     color: palette.highlight
@@ -367,6 +368,7 @@ DccObject {
                 }
                 Label {
                     id: replaceLabel
+                    Accessible.id: "ShortcutRow_Label_2"
                     text: qsTranslate("Shortcuts", "Replace")
                     visible: row.conflictActions
                     color: palette.highlight
