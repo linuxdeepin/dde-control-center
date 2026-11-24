@@ -141,6 +141,7 @@ DccObject {
 
                         D.Button {
                             id: editModeButton
+                            Accessible.id: "Shortcuts_Button_1"
                             focusPolicy: Qt.NoFocus
                             visible: categoryObj.categoryIsCustom
                             checkable: true
