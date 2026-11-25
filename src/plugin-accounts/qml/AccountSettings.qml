@@ -663,6 +663,7 @@ DccObject {
         name: settings.papaName + "loginMethodTitle"
         parentName: settings.papaName
         userId: settings.userId
+        isDomainUser: settings.isDomainUser
         canSearch: settings.canSearch
     }
 

@@ -13,6 +13,7 @@ import org.deepin.dtk.style 1.0 as DS
 DccTitleObject {
     id: loginMethodTitle
     property string userId
+    property bool isDomainUser: false
     name: "loginMethodTitle"
     // parentName: ""
     displayName: qsTr("Login method")
@@ -80,10 +81,10 @@ DccTitleObject {
                     backgroundType: DccObject.ClickStyle
                     weight: 12
                     // 域账号在未开启"允许修改本地密码"配置时不显示入口
-                    visible: !(dccData.isDomainUser(loginMethodTitle.userId) && !dccData.domainUserModifyPasswordEnable)
+                    visible: !(loginMethodTitle.isDomainUser && !dccData.domainUserModifyPasswordEnable)
                     // 域账号仅支持当前登录账户修改密码
                     enabled: (dccData.currentUserId() === loginMethodTitle.userId || (dccData.curUserIsSysAdmin() && !dccData.isOnline(loginMethodTitle.userId)))
-                             && (!dccData.isDomainUser(loginMethodTitle.userId)
+                             && (!loginMethodTitle.isDomainUser
                                  || (dccData.domainUserModifyPasswordEnable && dccData.currentUserId() === loginMethodTitle.userId))
                     pageType: DccObject.Editor
                     page: D.IconLabel {
@@ -117,6 +118,8 @@ DccTitleObject {
                     displayName: qsTr("Validity days")
                     canSearch: loginMethodTitle.canSearch
                     weight: 12
+                    // 域账号密码策略由域控管理，屏蔽有效天数
+                    visible: !loginMethodTitle.isDomainUser
                     pageType: DccObject.Editor
                     page: D.SpinBox {
                         id: sbAge
