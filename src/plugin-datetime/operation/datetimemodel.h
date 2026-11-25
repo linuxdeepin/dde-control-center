@@ -213,6 +213,7 @@ Q_SIGNALS:
     void symbolChanged(int format, const QString &symbol);
     void countriesChanged(const QStringList &countries);
     void regionChanged(const QString &region);
+    void regionsChanged();
     void currentRegionIndexChanged(int index);
     void currentDateChanged();
     void currentTimeChanged();
