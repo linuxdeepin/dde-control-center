@@ -2194,8 +2194,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>设备空闲省电</translation>
     </message>
     <message>
-        <source>Reduce the power consumption of idle USB, PCIe and SATA storage devices when using battery to extend battery life. May affect device response speed or stability.</source>
-        <translation>使用电池时降低部分闲置的 USB、PCIe 及 SATA 存储设备的功耗，以延长续航时间。可能影响设备响应速度或稳定性。</translation>
+        <source>Reduce power consumption of some idle USB, PCIe, and SATA storage devices when running on battery to extend battery life. May affect device responsiveness or stability.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
