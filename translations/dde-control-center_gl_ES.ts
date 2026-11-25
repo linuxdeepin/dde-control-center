@@ -2186,7 +2186,7 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Reduce the power consumption of idle USB, PCIe and SATA storage devices when using battery to extend battery life. May affect device response speed or stability.</source>
+        <source>Reduce power consumption of some idle USB, PCIe, and SATA storage devices when running on battery to extend battery life. May affect device responsiveness or stability.</source>
         <translation type="unfinished"/>
     </message>
 </context>
