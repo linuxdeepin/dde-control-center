@@ -486,6 +486,7 @@ DccObject {
                 RegionFormatDialog {
                     id: regionDialog
                     currentIndex: dccData.currentLanguageAndRegionIndex()
+                    currentLangKey: dccData.langRegion
                     viewModel: dccData.langRegionSearchModel()
                     onSelectedRegion: function (locale, lang) {
                         dccData.setCurrentLocaleAndLangRegion(locale, lang)
