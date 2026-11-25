@@ -2192,7 +2192,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Reduce power consumption of some idle USB, PCIe, and SATA storage devices when running on battery to extend battery life. May affect device responsiveness or stability.</source>
-        <translation type="unfinished"/>
+        <translation>在使用電池時降低部分閒置 USB、PCIe 和 SATA 存儲設備的功耗以延長電池續航。可能影響設備回應速度或穩定性。</translation>
     </message>
 </context>
 <context>
