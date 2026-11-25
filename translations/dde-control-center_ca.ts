@@ -2198,7 +2198,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Reduce power consumption of some idle USB, PCIe, and SATA storage devices when running on battery to extend battery life. May affect device responsiveness or stability.</source>
-        <translation type="unfinished"/>
+        <translation>Redueix el consum d&apos;energia d&apos;alguns dispositius d&apos;emmagatzematge USB, PCIe i SATA inactius quan es funciona amb bateria per allargar-ne la durada. Pot afectar la capacitat de resposta o l&apos;estabilitat del dispositiu.</translation>
     </message>
 </context>
 <context>
