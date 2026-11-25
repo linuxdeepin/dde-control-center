@@ -367,7 +367,7 @@ DccObject {
         name: "deviceIdlePowerSaving"
         parentName: "power/general"
         displayName: qsTr("Device idle power saving")
-        description: qsTr("Reduce the power consumption of idle USB, PCIe and SATA storage devices when using battery to extend battery life. May affect device response speed or stability.")
+        description: qsTr("Reduce power consumption of some idle USB, PCIe, and SATA storage devices when running on battery to extend battery life. May affect device responsiveness or stability.")
         weight: 460
         backgroundType: DccObject.Normal
         visible: dccData.model.lidPresent
