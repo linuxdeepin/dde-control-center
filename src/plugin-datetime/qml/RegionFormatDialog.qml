@@ -15,6 +15,7 @@ Loader {
     active: false
     required property var viewModel
     property int currentIndex: -1
+    property string currentLangKey: ""
 
     signal selectedRegion(string locale, string lang)
 
@@ -96,7 +97,6 @@ Loader {
                             property string checkedLang
                             property string checkedLocale
                             property string selectedLangKey: ""
-                            property string selectedLocaleKey: ""
                             anchors.fill: parent
                             model: regionFormatLoader.viewModel
                             currentIndex: regionFormatLoader.currentIndex
@@ -115,15 +115,10 @@ Loader {
                             }
 
                             Component.onCompleted: {
-                            if (currentIndex >= 0 && currentIndex < count) {
-                                positionViewAtIndex(currentIndex, ListView.Contain);
-
-                                Qt.callLater(function() {
-                                    if (currentItem && currentItem.model) {
-                                        selectedLangKey = currentItem.model.langKey;
-                                        selectedLocaleKey = currentItem.model.localeKey;
-                                        }
-                                    });
+                                if (currentLangKey.length > 0)
+                                    selectedLangKey = currentLangKey;
+                                if (currentIndex >= 0 && currentIndex < count) {
+                                    positionViewAtIndex(currentIndex, ListView.Contain);
                                 }
                             }
 
@@ -137,8 +132,7 @@ Loader {
                                 implicitWidth: itemsView.width
                                 text: model.display
                                 font: D.DTK.fontManager.t6
-                                checked: itemsView.selectedLangKey === model.langKey &&
-                                         itemsView.selectedLocaleKey === model.localeKey
+                                checked: itemsView.selectedLangKey === model.langKey
                                 hoverEnabled: true
                                 ButtonGroup.group: langGroup
 
@@ -164,7 +158,6 @@ Loader {
                                 onToggled: {
                                     if (checked) {
                                         itemsView.selectedLangKey = model.langKey;
-                                        itemsView.selectedLocaleKey = model.localeKey;
                                     }
                                 }
 
