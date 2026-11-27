@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -11,7 +11,7 @@ KeyboardModel::KeyboardModel(QObject *parent)
     : QObject(parent)
     , m_keyboardEnabled(true)
     , m_capsLock(true)
-    , m_numLock(true)
+    , m_numLock(false)
     , m_repeatInterval(1)
     , m_repeatDelay(1)
 {
