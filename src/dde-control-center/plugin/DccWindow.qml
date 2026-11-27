@@ -269,7 +269,7 @@ D.ApplicationWindow {
                     theme: D.DTK.themeType
                 }
             }
-            HomePage {}
+            HomePage { visible: false }
             SecondPage {
                 id: secondPage
             }
