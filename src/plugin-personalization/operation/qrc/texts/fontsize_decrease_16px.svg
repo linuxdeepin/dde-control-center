@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>icon/text-size/small</title>
-    <g id="icon/text-size/small" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect id="矩形" x="0" y="0" width="16" height="16"></rect>
-        <path d="M5.21386719,13.6787109 L6.03417969,11.2910156 L10.0844727,11.2910156 L10.9121094,13.6787109 L12.6186523,13.6787109 L8.73681641,3 L7.38183594,3 L3.5,13.6787109 L5.21386719,13.6787109 Z M9.62304688,9.85546875 L6.50292969,9.85546875 L8.04833984,5.18994141 L8.07763672,5.18994141 L9.62304688,9.85546875 Z" id="A" fill-opacity="0.9" fill="#000000" fill-rule="nonzero"></path>
-    </g>
-</svg>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>buletooth_icon/pc</title>
-    <g id="buletooth_icon/pc" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="ICON-/-Device-/-PC" transform="translate(1, 2)" fill="#000000" fill-rule="nonzero">
-            <path d="M13,0 C13.5522847,-1.01453063e-16 14,0.44771525 14,1 L14,9 C14,9.55228475 13.5522847,10 13,10 L8,10 L8,11 L11.5,11 C11.7761424,11 12,11.2238576 12,11.5 C12,11.7761424 11.7761424,12 11.5,12 L2.5,12 C2.22385763,12 2,11.7761424 2,11.5 C2,11.2238576 2.22385763,11 2.5,11 L6,11 L6,10 L1,10 C0.44771525,10 6.76353751e-17,9.55228475 0,9 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 L13,0 Z M13,1 L1,1 L1,8 L13,8 L13,1 Z" id="形状结合"></path>
-        </g>
-    </g>
-</svg>
