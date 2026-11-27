@@ -1275,6 +1275,7 @@ void DatetimeModel::setRegions(const Regions &regions)
 {
     if (m_regions != regions) {
         m_regions = regions;
+        Q_EMIT regionsChanged();
     }
 }
 

@@ -24,7 +24,7 @@ QVariant LangRegionModel::data(const QModelIndex &index, int role) const
 {
     DatetimeModel *sourceMode = dynamic_cast<DatetimeModel *>(parent());
     if (!sourceMode)
-        QVariant();
+        return QVariant();
 
     static QStringList datas;
     const auto& regions = sourceMode->regions();

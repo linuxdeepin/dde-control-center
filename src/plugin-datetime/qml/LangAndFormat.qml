@@ -496,6 +496,9 @@ DccObject {
                         function onCurrentLanguageAndRegionChanged(currentLanguageAndRegion) {
                             regionDialog.currentIndex = dccData.currentLanguageAndRegionIndex()
                         }
+                        function onRegionsChanged() {
+                            regionDialog.currentIndex = dccData.currentLanguageAndRegionIndex()
+                        }
                     }
                 }
 
