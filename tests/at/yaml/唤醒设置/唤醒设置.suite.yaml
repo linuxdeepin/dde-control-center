@@ -1,0 +1,49 @@
+name: 唤醒设置_suite
+app: dde-control-center
+module: 唤醒设置
+setup:
+- action: session_start
+  command: dde-control-center
+  wait: 3.0
+suites:
+- id: suite_唤醒设置_001_s1
+  name: 唤醒计算机/显示器需要密码开关切换
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: passwordIsRequiredToWakeUpTheComputer
+      role: check box
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: passwordIsRequiredToWakeUpTheComputer
+      role: check box
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: passwordIsRequiredToWakeUpTheMonitor
+      role: check box
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: passwordIsRequiredToWakeUpTheMonitor
+      role: check box
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: passwordIsRequiredToWakeUpTheComputer
+      role: check box
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: passwordIsRequiredToWakeUpTheMonitor
+      role: check box
+teardown:
+- action: session_stop
