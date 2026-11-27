@@ -60,7 +60,7 @@ TEST(KeyboardModel, ConstructorDefaults)
     KeyboardModel m;
     EXPECT_TRUE(m.keyboardEnabled());
     EXPECT_TRUE(m.capsLock());
-    EXPECT_TRUE(m.numLock());
+    EXPECT_FALSE(m.numLock());
     EXPECT_EQ(m.repeatInterval(), 1u);
     EXPECT_EQ(m.repeatDelay(), 1u);
     EXPECT_EQ(m.getLangChangedState(), 0);
@@ -372,20 +372,20 @@ TEST(KeyboardModel, SetCapsLockEmitsOnlyOnRealChange)
 TEST(KeyboardModel, SetNumLockEmitsOnlyOnRealChange)
 {
     KeyboardModel m;
-    EXPECT_TRUE(m.numLock());
+    EXPECT_FALSE(m.numLock());
     QSignalSpy spy(&m, &KeyboardModel::numLockChanged);
 
-    m.setNumLock(true);
+    m.setNumLock(false);
     EXPECT_EQ(spy.count(), 0);
+
+    m.setNumLock(true);
+    ASSERT_EQ(spy.count(), 1);
+    EXPECT_TRUE(spy.takeFirst().at(0).toBool());
+    EXPECT_TRUE(m.numLock());
 
     m.setNumLock(false);
     ASSERT_EQ(spy.count(), 1);
-    EXPECT_FALSE(spy.takeFirst().at(0).toBool());
     EXPECT_FALSE(m.numLock());
-
-    m.setNumLock(true);
-    ASSERT_EQ(spy.count(), 1);
-    EXPECT_TRUE(m.numLock());
 }
 
 // ---- repeatDelay ----
