@@ -30,6 +30,7 @@ ControlCenterDBusAdaptor::ControlCenterDBusAdaptor(DccManager *parent)
 {
     parent->mainWindow()->installEventFilter(this);
     connect(parent, &DccManager::activeObjectChanged, this, &ControlCenterDBusAdaptor::updatePage);
+    connect(parent, &DccManager::modulePropertiesChanged, this, &ControlCenterDBusAdaptor::PropertiesChanged);
 }
 
 ControlCenterDBusAdaptor::~ControlCenterDBusAdaptor() { }
@@ -99,6 +100,16 @@ void ControlCenterDBusAdaptor::Toggle()
 QString ControlCenterDBusAdaptor::GetAllModule()
 {
     return parent()->GetAllModule();
+}
+
+QVariantMap ControlCenterDBusAdaptor::Get(const QString &module, const QVariantMap &param)
+{
+    return parent()->get(module, param);
+}
+
+QVariantMap ControlCenterDBusAdaptor::Set(const QString &module, const QVariantMap &param)
+{
+    return parent()->set(module, param);
 }
 
 void ControlCenterDBusAdaptor::ShowPage(const QString &module, const QString &page)

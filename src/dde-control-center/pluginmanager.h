@@ -8,6 +8,7 @@
 #include <QObject>
 #include <QQmlContext>
 #include <QStringList>
+#include <QSet>
 #include <QVector>
 
 #include <atomic>
@@ -32,6 +33,11 @@ public:
     void beginDelete();
     void startDataPhase();
 
+    // 按插件 ID（目录名/loader 名）精确查找；重名时返回 nullptr 并记录告警
+    DccPluginLoader *findLoader(const QString &module) const;
+    // 插件发现阶段是否已结束：未结束前不能把"找不到"判定为 NotFound
+    bool discoveryFinished() const;
+
     QQmlEngine *engine();
     DccObject *rootModule();
     bool hidden(const QString &name);
@@ -48,18 +54,27 @@ Q_SIGNALS:
     void moduleLoaded(const QString &name);
     void navigationReady();
     void loadAllFinished();
+    // 插件发现阶段结束：请求层据此收束找不到 loader 的排队请求
+    void discoveryFinishedChanged();
+    // 某个 loader 的数据后端进入终态（Ready/Failed/NotSupported）。
+    // 隐藏后恢复可见会重新加载并再次进入终态，因此同一 loader 可能发多次，
+    // 接收方必须按当前状态处理，不能假设只收到一次。
+    void backendStateChanged(DccPluginLoader *loader);
+    void modulePropertiesChanged(const QString &module, const QVariantMap &properties);
 
 private:
     QThreadPool *threadPool();
 
 private Q_SLOTS:
     void loadPlugin(DccPluginLoader *loader);
-
-private Q_SLOTS:
     void onPluginStatusChanged(DccPluginLoader *loader, uint status);
+    // v2：worker 完成动态库加载后回到主线程，先执行 initialized() 再调度 create
+    void onFactoryReady(DccPluginLoader *loader);
+    void onFactoryPropertiesChanged(const QVariantMap &properties);
     void onHideModuleChanged(const QSet<QString> &hideModule);
 
 private:
+    void connectFactorySignals(DccPluginLoader *loader);
     void checkNavigationFinished();
     void checkLoadFinished();
 
@@ -70,11 +85,13 @@ private:
     std::atomic<bool> m_isDeleting;
     QQmlEngine *m_engine;
     QStringList m_pluginsToLoad;
+    // 已登记 propertiesChanged 的 v2 工厂，避免重复连接
+    QSet<const void *> m_connectedFactories;
     DccLoadTimer m_loadTimer;
     bool m_navigationFinished = false;
-    // 数据阶段是否已启动。首次由 DccManager::handleNavigationReady() 触发；
-    // 之后用于识别"模块已就绪但数据阶段尚未为它启动"的插件（加载时被判为隐藏、
-    // 随后才变为可见），为其补跑数据阶段。
+    // 数据阶段是否已启动。首次由 checkNavigationFinished() 在发现阶段结束时
+    // 置位并启动；之后用于识别"模块已就绪但数据阶段尚未为它启动"的插件
+    // （加载时被判为隐藏、随后才变为可见），为其补跑数据阶段。
     bool m_dataPhaseStarted = false;
     bool m_allLoadFinished = false;
     bool m_showOnNavigationReady;
