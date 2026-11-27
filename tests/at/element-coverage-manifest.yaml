@@ -1,0 +1,431 @@
+version: '1.0'
+source: at-case-authoring:element-map.yaml
+scan_total: 38
+elements:
+  DateTimeSettingDialog_Button_2:
+    role: button
+    ui_name: 保存按钮
+    desc: 时间和日期-保存按钮(确定)
+    locator: accessible_id
+  TimeAndDate_ComboBox:
+    role: combobox
+    ui_name: 服务器下拉框
+    desc: 时间和日期-服务器下拉框
+    locator: accessible_id
+  DisplayIdentify:
+    role: button
+    ui_name: 识别
+    desc: 显示-识别显示器
+    locator: accessible_id
+  MicrophonePage_ComboBox:
+    role: combobox
+    ui_name: 输入设备下拉框
+    desc: 声音-输入设备下拉框
+    locator: accessible_id
+  SpeakerPage_ComboBox:
+    role: combobox
+    ui_name: 输出设备下拉框
+    desc: 声音-输出设备下拉框
+    locator: accessible_id
+  ComboLabel_ComboBox:
+    role: combobox
+    ui_name: 小数点下拉框
+    desc: 时间和日期-小数点下拉框
+    locator: accessible_id
+  DateTimeSettingDialog_TextInput:
+    role: textfield
+    ui_name: 服务器地址输入框
+    desc: 时间和日期-服务器地址输入框
+    locator: accessible_id
+  DisplayMain_ComboBox_3:
+    role: combobox
+    ui_name: 方向下拉框
+    desc: 显示-方向选择下拉框
+    locator: accessible_id
+  DisplayDisplayResolutionBox:
+    role: combobox
+    ui_name: 分辨率下拉框
+    desc: 显示-分辨率下拉框
+    locator: accessible_id
+  DisplayDisplayRefreshRateBox:
+    role: combobox
+    ui_name: 刷新率下拉框
+    desc: 显示-刷新率下拉框
+    locator: accessible_id
+  DisplayMain_Button:
+    role: button
+    ui_name: 识别按钮
+    desc: 显示-识别显示器按钮
+    locator: accessible_id
+  DisplayMain_ComboBox:
+    role: combobox
+    ui_name: 主屏幕下拉框
+    desc: 显示-主屏幕下拉框
+    locator: accessible_id
+  DateTimeSettingDialog_Button:
+    role: button
+    ui_name: 取消按钮
+    desc: 时间和日期-取消按钮
+    locator: accessible_id
+  DisplayDisplayResolution:
+    role: combobox
+    ui_name: 分辨率下拉菜单
+    desc: 显示-分辨率下拉菜单
+    locator: accessible_id
+  DisplayDisplayRefreshRate:
+    role: combobox
+    ui_name: 刷新率下拉菜单
+    desc: 显示-刷新率下拉菜单
+    locator: accessible_id
+  DisplayMain_ComboBox_4:
+    role: combobox
+    ui_name: 缩放下拉菜单
+    desc: 显示-缩放下拉菜单
+    locator: accessible_id
+  DevelopModePage_ComboBox:
+    role: combobox
+    ui_name: 日志记录级别下拉框
+    desc: 开发者选项-日志记录级别下拉框
+    locator: accessible_id
+  DevelopModePage_Button:
+    role: button
+    ui_name: 查看按钮
+    desc: 开发者选项-查看按钮
+    locator: accessible_id
+  DisplayDisplayRotate:
+    role: combobox
+    ui_name: 方向
+    desc: 显示-方向
+    locator: accessible_id
+  DisplayBrightness:
+    role: slider
+    ui_name: 亮度滑块
+    desc: 显示-亮度滑块
+    locator: accessible_id
+  LangAndFormat_Button_2:
+    role: button
+    ui_name: 地区下拉框
+    desc: 语言和区域-地区下拉框
+    locator: accessible_id
+  DatetimeRegionAndFormat:
+    role: button
+    ui_name: 区域格式下拉框
+    desc: 语言和区域-区域格式下拉框
+    locator: accessible_id
+  LangAndFormat_Button:
+    role: button
+    ui_name: 编辑按钮
+    desc: 语言和区域-编辑按钮
+    locator: accessible_id
+  RegionFormatDialog_Button:
+    role: button
+    ui_name: 添加按钮
+    desc: 语言和区域-添加按钮
+    locator: accessible_id
+  RegionFormatDialog_Button_2:
+    role: button
+    ui_name: 完成按钮
+    desc: 语言和区域-完成按钮
+    locator: accessible_id
+  NativeInfoPage_Button_2:
+    role: button
+    ui_name: 点击此处
+    desc: 关于本机-点击此处(查看)
+    locator: accessible_id
+  TimezoneDialog_Button:
+    role: button
+    ui_name: 时区添加按钮
+    desc: 时间和日期-时区添加按钮
+    locator: accessible_id
+  DatetimeSystemTimezone:
+    role: combobox
+    ui_name: 系统时区下拉框
+    desc: 时间和日期-系统时区下拉框
+    locator: accessible_id
+  DateTimeSettingDialog_Year:
+    role: spinbox
+    ui_name: 年份减少按钮
+    desc: 时间和日期-年份调节
+    locator: accessible_id
+  DateTimeSettingDialog_Month:
+    role: spinbox
+    ui_name: 月份增加按钮
+    desc: 时间和日期-月份调节
+    locator: accessible_id
+  DateTimeSettingDialog_Day:
+    role: spinbox
+    ui_name: 日增加按钮
+    desc: 时间和日期-日调节
+    locator: accessible_id
+  TimezoneDialog_CheckBox:
+    role: checkbox
+    ui_name: 对钩按钮
+    desc: 时间和日期-时区对钩按钮
+    locator: accessible_id
+  TimeAndDate_Button_2:
+    role: button
+    ui_name: 添加时区按钮
+    desc: 时间和日期-添加时区按钮
+    locator: accessible_id
+  TimeAndDate_Button_3:
+    role: button
+    ui_name: 删除按钮
+    desc: 时间和日期-删除按钮
+    locator: accessible_id
+  NativeInfoPage_Button:
+    role: button
+    ui_name: 打开按钮
+    desc: 关于本机-打开按钮
+    locator: accessible_id
+  BootPage_Switch:
+    role: switch
+    ui_name: 开关启动菜单
+    desc: 启动菜单-启动延迟开关
+    locator: accessible_id
+  BootPage_Button:
+    role: button
+    ui_name: 启动菜单
+    desc: 启动菜单-启动菜单按钮
+    locator: accessible_id
+  UeProgramLicenseDialog_CheckBox:
+    role: checkbox
+    ui_name: 同意并加入用户体验计划
+    desc: 用户体验计划-同意复选框
+    locator: accessible_id
+transient_items: []
+unresolved:
+- name: 音量图标
+  role: TBD
+  ui_name: 音量图标
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 静音图标
+  role: TBD
+  ui_name: 静音图标
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 全局搜索框
+  role: TBD
+  ui_name: 全局搜索框
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 任意一级菜单
+  role: TBD
+  ui_name: 任意一级菜单
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 桌面的任意图标
+  role: TBD
+  ui_name: 桌面的任意图标
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 还原按钮
+  role: TBD
+  ui_name: 还原按钮
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 立即注销按钮
+  role: TBD
+  ui_name: 立即注销按钮
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 手动调节按钮
+  role: TBD
+  ui_name: 手动调节按钮
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 方向下拉菜单
+  role: TBD
+  ui_name: 方向下拉菜单
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 选择一个屏幕更改其设置
+  role: TBD
+  ui_name: 选择一个屏幕更改其设置
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 弹窗中的保存按钮
+  role: TBD
+  ui_name: 弹窗中的保存按钮
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 注销
+  role: TBD
+  ui_name: 注销
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 集合窗口
+  role: TBD
+  ui_name: 集合窗口
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 显示设置
+  role: TBD
+  ui_name: 显示设置
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 单机桌面右键菜单
+  role: TBD
+  ui_name: 单机桌面右键菜单
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 显示
+  role: TBD
+  ui_name: 显示
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 稍后注销
+  role: TBD
+  ui_name: 稍后注销
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 立即注销
+  role: TBD
+  ui_name: 立即注销
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 90度
+  role: TBD
+  ui_name: 90度
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 保存
+  role: TBD
+  ui_name: 保存
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 标准
+  role: TBD
+  ui_name: 标准
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 还原
+  role: TBD
+  ui_name: 还原
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 任务栏的音量图标
+  role: TBD
+  ui_name: 任务栏的音量图标
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 播放图标
+  role: TBD
+  ui_name: 播放图标
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 播放按钮
+  role: TBD
+  ui_name: 播放按钮
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 清除图标
+  role: TBD
+  ui_name: 清除图标
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 在终端中打开
+  role: TBD
+  ui_name: 在终端中打开
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 添加
+  role: TBD
+  ui_name: 添加
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 垃圾篓
+  role: TBD
+  ui_name: 垃圾篓
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 系统终端
+  role: TBD
+  ui_name: 系统终端
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 看图
+  role: TBD
+  ui_name: 看图
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 系统音乐
+  role: TBD
+  ui_name: 系统音乐
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 系统文本编辑器
+  role: TBD
+  ui_name: 系统文本编辑器
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 系统邮箱
+  role: TBD
+  ui_name: 系统邮箱
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 系统浏览器
+  role: TBD
+  ui_name: 系统浏览器
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 360浏览器
+  role: TBD
+  ui_name: 360浏览器
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 桌面的回收站图标
+  role: TBD
+  ui_name: 桌面的回收站图标
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 设备管理菜单
+  role: TBD
+  ui_name: 设备管理菜单
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 设备管理菜单项
+  role: TBD
+  ui_name: 设备管理菜单项
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 系统音效菜单项
+  role: TBD
+  ui_name: 系统音效菜单项
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 静音按钮
+  role: TBD
+  ui_name: 静音按钮
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 复制链接地址（L）
+  role: TBD
+  ui_name: 复制链接地址（L）
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 任务文本或输入框
+  role: TBD
+  ui_name: 任务文本或输入框
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 取消或者x按钮
+  role: TBD
+  ui_name: 取消或者x按钮
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 取消
+  role: TBD
+  ui_name: 取消
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 控制中心
+  role: TBD
+  ui_name: 控制中心
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位
+- name: 左侧菜单
+  role: TBD
+  ui_name: 左侧菜单
+  desc: TBD
+  reason: id_name/object_name 未填 (TBD)，运行时无法按名定位

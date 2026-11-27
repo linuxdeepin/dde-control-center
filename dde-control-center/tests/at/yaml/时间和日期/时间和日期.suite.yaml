@@ -1,0 +1,293 @@
+name: 时间和日期_suite
+app: deepin-control-center
+module: 时间和日期
+setup:
+- action: session_start
+  command: deepin-control-center
+  wait: 3.0
+suites:
+- id: suite_时间和日期_001_s1
+  name: 【控制中心】【系统】【时间和日期】已配置自定义服务器，修改自定义服务器，验证身份验证时限
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Button_2
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Day
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_TextInput
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_ComboBox
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: TimeAndDate_ComboBox
+- id: suite_时间和日期_002_s1
+  name: 【控制中心】【系统】【时间和日期】任务栏时间显示秒数配置为关闭状态
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Button_2
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Day
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_TextInput
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DatetimeSystemTimezone
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_Button_2
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_ComboBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimezoneDialog_Button
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: TimezoneDialog_Button
+- id: suite_时间和日期_003_s1
+  name: 【控制中心】【系统】【时间和日期】添加时区列表滚动显示时区
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Button_2
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Day
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Month
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_TextInput
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Year
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DatetimeSystemTimezone
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_Button_2
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_ComboBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimezoneDialog_Button
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: TimezoneDialog_Button
+- id: suite_时间和日期_004_s1
+  name: 【控制中心】【系统】【时间和日期】自动同步配置开启状态下，自定义服务器输入框不输入字符，按钮状态显示
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Button_2
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Day
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_TextInput
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DatetimeSystemTimezone
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_Button_2
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_ComboBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimezoneDialog_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimezoneDialog_CheckBox
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: TimezoneDialog_CheckBox
+- id: suite_时间和日期_005_s1
+  name: 【控制中心】【系统】【时间和日期】添加时区界面，自动检索功能
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Day
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DatetimeSystemTimezone
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_Button_2
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_Button_3
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_ComboBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimezoneDialog_Button
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: TimezoneDialog_Button
+- id: suite_时间和日期_006_s1
+  name: 【控制中心】【系统】【时间和日期】开启自动同步配置
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Day
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_TextInput
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DatetimeSystemTimezone
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_ComboBox
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: TimeAndDate_ComboBox
+- id: suite_时间和日期_coverage_fill_007_s1
+  name: 时间和日期-控件覆盖补全
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: ComboLabel_ComboBox
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: ComboLabel_ComboBox
+teardown:
+- action: session_stop

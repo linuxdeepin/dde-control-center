@@ -1,0 +1,589 @@
+version: '1.0'
+cases:
+- id: suite_关于本机_001_s1
+  name: 【控制中心】【系统】【辅助信息】关于本机页面版本授权是已激活状态，点击查看按钮正常弹出授权管理页面
+  module: 关于本机
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: NativeInfoPage_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: NativeInfoPage_Button_2
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: NativeInfoPage_Button_2
+- id: suite_启动菜单_001_s1
+  name: 【控制中心】【系统】【启动菜单】[启动动画]配置项支持全局搜索跳转
+  module: 启动菜单
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: BootPage_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: BootPage_Switch
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: BootPage_Switch
+- id: suite_声音_001_s1
+  name: 【控制中心】【系统】【声音】禁用/启用输入设备，检查智能降噪开关状态
+  module: 声音
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: MicrophonePage_ComboBox
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: MicrophonePage_ComboBox
+- id: suite_声音_002_s1
+  name: 【控制中心】【系统】【声音】手动切换输出设备
+  module: 声音
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: MicrophonePage_ComboBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: SpeakerPage_ComboBox
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: SpeakerPage_ComboBox
+- id: suite_开发者选项_001_s1
+  name: 【控制中心】【系统】【开发者选项】连续多次点击磐石只读保护开关都能正常响应
+  module: 开发者选项
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DevelopModePage_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DevelopModePage_ComboBox
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: DevelopModePage_ComboBox
+- id: suite_时间和日期_001_s1
+  name: 【控制中心】【系统】【时间和日期】已配置自定义服务器，修改自定义服务器，验证身份验证时限
+  module: 时间和日期
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Button_2
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Day
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_TextInput
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_ComboBox
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: TimeAndDate_ComboBox
+- id: suite_时间和日期_002_s1
+  name: 【控制中心】【系统】【时间和日期】任务栏时间显示秒数配置为关闭状态
+  module: 时间和日期
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Button_2
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Day
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_TextInput
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DatetimeSystemTimezone
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_Button_2
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_ComboBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimezoneDialog_Button
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: TimezoneDialog_Button
+- id: suite_时间和日期_003_s1
+  name: 【控制中心】【系统】【时间和日期】添加时区列表滚动显示时区
+  module: 时间和日期
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Button_2
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Day
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Month
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_TextInput
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Year
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DatetimeSystemTimezone
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_Button_2
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_ComboBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimezoneDialog_Button
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: TimezoneDialog_Button
+- id: suite_时间和日期_004_s1
+  name: 【控制中心】【系统】【时间和日期】自动同步配置开启状态下，自定义服务器输入框不输入字符，按钮状态显示
+  module: 时间和日期
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Button_2
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Day
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_TextInput
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DatetimeSystemTimezone
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_Button_2
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_ComboBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimezoneDialog_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimezoneDialog_CheckBox
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: TimezoneDialog_CheckBox
+- id: suite_时间和日期_005_s1
+  name: 【控制中心】【系统】【时间和日期】添加时区界面，自动检索功能
+  module: 时间和日期
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Day
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DatetimeSystemTimezone
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_Button_2
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_Button_3
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_ComboBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimezoneDialog_Button
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: TimezoneDialog_Button
+- id: suite_时间和日期_006_s1
+  name: 【控制中心】【系统】【时间和日期】开启自动同步配置
+  module: 时间和日期
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_Day
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DateTimeSettingDialog_TextInput
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DatetimeSystemTimezone
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: TimeAndDate_ComboBox
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: TimeAndDate_ComboBox
+- id: suite_时间和日期_coverage_fill_007_s1
+  name: 时间和日期-控件覆盖补全
+  module: 时间和日期
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: ComboLabel_ComboBox
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: ComboLabel_ComboBox
+- id: suite_显示_001_s1
+  name: ' 【控制中心】【系统】【显示】【跨屏拼接】4×1 纵向矩形拼接（四屏堆叠）'
+  module: 显示
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayBrightness
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayResolution
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayResolutionBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayMain_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayMain_ComboBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayMain_ComboBox_3
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: DisplayMain_ComboBox_3
+- id: suite_显示_002_s1
+  name: ' 【控制中心】【系统】【显示】【跨屏拼接】跨屏拼接模式下亮度调节功能'
+  module: 显示
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayBrightness
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayRefreshRate
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayRefreshRateBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayResolution
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayResolutionBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayRotate
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayIdentify
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayMain_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayMain_ComboBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayMain_ComboBox_3
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayMain_ComboBox_4
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: DisplayMain_ComboBox_4
+- id: suite_显示_003_s1
+  name: 【控制中心】【系统】【显示】单屏模式下，调节刷新率，点击保存
+  module: 显示
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayBrightness
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayRefreshRate
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayRefreshRateBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayResolution
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayResolutionBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayRotate
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayMain_ComboBox_3
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayMain_ComboBox_4
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: DisplayMain_ComboBox_4
+- id: suite_用户体验计划_001_s1
+  name: 【控制中心】【系统】【用户体验计划】用户体验计划三级菜单界面展示检查
+  module: 用户体验计划
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: UeProgramLicenseDialog_CheckBox
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: UeProgramLicenseDialog_CheckBox
+- id: suite_语言和区域_001_s1
+  name: 【控制中心】【系统】【语言和区域】区域格式中，小数点设置为","，切换区域格式中分隔符为","的区域，检查小数点显示
+  module: 语言和区域
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DatetimeRegionAndFormat
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: LangAndFormat_Button_2
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: LangAndFormat_Button_2
+- id: suite_语言和区域_006_s1
+  name: 【控制中心】【系统】【语言和区域】设置分隔符为[空格]
+  module: 语言和区域
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: LangAndFormat_Button_2
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: LangAndFormat_Button_2
+- id: suite_语言和区域_009_s1
+  name: 【控制中心】【系统】【语言和区域】【区域格式】一周第一天时间格式设置
+  module: 语言和区域
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DatetimeRegionAndFormat
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: LangAndFormat_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: LangAndFormat_Button_2
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: RegionFormatDialog_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: RegionFormatDialog_Button_2
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: RegionFormatDialog_Button_2
