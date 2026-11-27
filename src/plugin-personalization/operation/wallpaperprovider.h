@@ -27,7 +27,7 @@ public:
     void getSysBackground();
     void getCustomBackground();
     void getSolodBackground();
-    void getLiveBackground();
+    void getLiveBackground(const QString &directory);
     QStringList fetchWallpaper(const QString &dir);
 
 signals:

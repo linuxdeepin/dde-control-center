@@ -15,6 +15,7 @@
 #include <QDir>
 #include <QHash>
 #include <QPointer>
+#include <QSet>
 #include <QtConcurrent/QtConcurrent>
 #include <algorithm>
 #include <optional>
@@ -298,7 +299,7 @@ void InterfaceWorker::startListBackground(WallpaperType type)
             getCustomBackground();
             getSysBackground();
             getSolodBackground();
-            getLiveBackground();
+            getLiveBackground(SYS_LIVE_WALLPAPER_DIR);
             break;
         case WallpaperType::Wallpaper_Sys:
             getSysBackground();
@@ -310,7 +311,7 @@ void InterfaceWorker::startListBackground(WallpaperType type)
             getSolodBackground();
             break;
         case WallpaperType::Wallpaper_Live:
-            getLiveBackground();
+            getLiveBackground(SYS_LIVE_WALLPAPER_DIR);
             break;
         default:
             break;
@@ -414,64 +415,34 @@ QStringList InterfaceWorker::fetchWallpaper(const QString &dir)
     return walls;
 }
 
-void InterfaceWorker::getLiveBackground()
+void InterfaceWorker::getLiveBackground(const QString &directory)
 {
     CHECK_RETURN_RUNNING
     QList<WallpaperItemPtr> wallpapers;
 
-    QDir dir(SYS_LIVE_WALLPAPER_DIR);
+    QDir dir(directory);
     if (!dir.exists()) {
-        qCWarning(DdcPersonalizationWallpaperWorker) << "Live wallpaper dir not exists:" << SYS_LIVE_WALLPAPER_DIR;
+        qCWarning(DdcPersonalizationWallpaperWorker) << "Live wallpaper dir not exists:" << directory;
         Q_EMIT pushBackground(wallpapers, WallpaperType::Wallpaper_Live);
         return;
     }
 
+    QJsonArray entries;
     QFile metaFile(dir.absoluteFilePath("metadata.json"));
-    if (!metaFile.exists()) {
-        qCWarning(DdcPersonalizationWallpaperWorker) << "metadata.json not found, fallback to scan mp4 files";
-        QStringList nameFilters;
-        nameFilters << "*.mp4" << "*.MP4" << "*.mov" << "*.MOV" << "*.avi" << "*.AVI";
-        QFileInfoList fileInfoList = dir.entryInfoList(nameFilters, QDir::Files);
-
-        for (const auto &fileInfo : fileInfoList) {
-            CHECK_RETURN_RUNNING
-            QString videoPath = fileInfo.absoluteFilePath();
-            QUrl url = QUrl::fromLocalFile(videoPath);
-            QString cachePath = DccWallpaperThumbnail::cachePath(videoPath);
-            QString thumbnail = QFile::exists(cachePath) ? cachePath : videoPath;
-
-            WallpaperItemPtr ptr(new WallpaperItem{
-                url.toString(), url.toString(), QUrl::fromLocalFile(thumbnail).toString(),
-                false, fileInfo.lastModified().toMSecsSinceEpoch(), false, false,
-                "", Download_Installed, 1, Wallpaper_Live
-            });
-            if (ptr) {
-                if (!QFile::exists(cachePath))
-                    generateVideoThumbnail(videoPath, url.toString());
-                wallpapers.append(ptr);
-            }
-        }
-        Q_EMIT pushBackground(wallpapers, WallpaperType::Wallpaper_Live);
-        return;
-    }
-
     if (!metaFile.open(QIODevice::ReadOnly)) {
-        qCWarning(DdcPersonalizationWallpaperWorker) << "Failed to open metadata.json";
-        Q_EMIT pushBackground(wallpapers, WallpaperType::Wallpaper_Live);
-        return;
+        qCWarning(DdcPersonalizationWallpaperWorker) << "Failed to open metadata.json:" << metaFile.errorString();
+    } else {
+        QJsonParseError parseErr;
+        const QJsonDocument doc = QJsonDocument::fromJson(metaFile.readAll(), &parseErr);
+        if (parseErr.error != QJsonParseError::NoError || !doc.isArray()) {
+            qCWarning(DdcPersonalizationWallpaperWorker) << "Invalid metadata.json:" << parseErr.errorString();
+        } else {
+            entries = doc.array();
+        }
     }
 
-    QJsonParseError parseErr;
-    QJsonDocument doc = QJsonDocument::fromJson(metaFile.readAll(), &parseErr);
-    metaFile.close();
-    if (parseErr.error != QJsonParseError::NoError || !doc.isArray()) {
-        qCWarning(DdcPersonalizationWallpaperWorker) << "metadata.json parse error:" << parseErr.errorString();
-        Q_EMIT pushBackground(wallpapers, WallpaperType::Wallpaper_Live);
-        return;
-    }
-
-
-    QJsonArray entries = doc.array();
+    QSet<QString> videoPaths;
+    QList<QPair<QString, QString>> thumbnailJobs;
     for (const auto &entry : entries) {
         CHECK_RETURN_RUNNING
         QJsonObject obj = entry.toObject();
@@ -483,7 +454,10 @@ void InterfaceWorker::getLiveBackground()
         if (id.isEmpty() || pathRel.isEmpty())
             continue;
 
-        QString videoAbsPath = dir.absoluteFilePath(pathRel);
+        QString videoAbsPath = QDir::cleanPath(dir.absoluteFilePath(pathRel));
+        if (videoPaths.contains(videoAbsPath))
+            continue;
+        videoPaths.insert(videoAbsPath);
         QUrl url = QUrl::fromLocalFile(videoAbsPath);
         bool videoExists = QFile::exists(videoAbsPath);
 
@@ -520,15 +494,41 @@ void InterfaceWorker::getLiveBackground()
             packageName, status, videoExists ? 1.0 : 0, Wallpaper_Live
         });
 
-        if (ptr) {
-            wallpapers.append(ptr);
-            if (needGenerate && videoExists)
-                generateVideoThumbnail(videoAbsPath, id);
-        }
+        wallpapers.append(ptr);
+        if (needGenerate && videoExists)
+            thumbnailJobs.append({videoAbsPath, url.toString()});
     }
 
-    qCDebug(DdcPersonalizationWallpaperWorker) << "Found" << wallpapers.size() << "live wallpapers from metadata";
+    const QStringList nameFilters = {
+        QStringLiteral("*.mp4"), QStringLiteral("*.mov"), QStringLiteral("*.avi"),
+        QStringLiteral("*.webm"), QStringLiteral("*.mkv")
+    };
+    const QFileInfoList files = dir.entryInfoList(nameFilters, QDir::Files);
+    for (const auto &fileInfo : files) {
+        CHECK_RETURN_RUNNING
+        const QString videoPath = fileInfo.absoluteFilePath();
+        if (videoPaths.contains(videoPath))
+            continue;
+
+        const QString url = QUrl::fromLocalFile(videoPath).toString();
+        const QString cachePath = DccWallpaperThumbnail::cachePath(videoPath);
+        const bool cached = QFile::exists(cachePath);
+        const QString thumbnail = cached ? cachePath : videoPath;
+        wallpapers.append(WallpaperItemPtr(new WallpaperItem{
+            url, url, QUrl::fromLocalFile(thumbnail).toString(),
+            false, fileInfo.lastModified().toMSecsSinceEpoch(), false, false,
+            "", Download_Installed, 1, Wallpaper_Live
+        }));
+        if (!cached)
+            thumbnailJobs.append({videoPath, url});
+    }
+
+    qCDebug(DdcPersonalizationWallpaperWorker) << "Found" << wallpapers.size() << "live wallpapers";
     Q_EMIT pushBackground(wallpapers, WallpaperType::Wallpaper_Live);
+    for (const auto &job : thumbnailJobs) {
+        CHECK_RETURN_RUNNING
+        generateVideoThumbnail(job.first, job.second);
+    }
 }
 
 
