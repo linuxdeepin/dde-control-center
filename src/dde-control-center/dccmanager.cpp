@@ -353,13 +353,13 @@ void DccManager::removeObject(const QString &name)
 
 void DccManager::showPage(const QString &url)
 {
+    // show(); // 先查找再显示则注释掉此处
+    int i = url.indexOf('?');
+    QString cmd = i != -1 ? url.mid(i + 1) : QString();
+    if (cmd.isEmpty() || isIndicatorShown(cmd)) {
+        show();
+    }
     if (this->calledFromDBus()) {
-        // show(); // 先查找再显示则注释掉此处
-        int i = url.indexOf('?');
-        QString cmd = i != -1 ? url.mid(i + 1) : QString();
-        if (cmd.isEmpty() || isIndicatorShown(cmd)) {
-            show();
-        }
         auto message = this->message();
         setDelayedReply(true);
         QMetaObject::invokeMethod(this, &DccManager::waitShowPage, Qt::QueuedConnection, url, message);
